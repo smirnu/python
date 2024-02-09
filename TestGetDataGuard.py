@@ -6,7 +6,7 @@ class TestGetDataGuard(unittest.TestCase):
     
     def setUp(self):
         self.apiAddress = 'https://content.guardianapis.com/search?page='
-        self.apiKey = '&api-key=ee064c9a-63d8-4cda-bbd8-ea415d32785c'
+        self.apiKey = '&api-key=deleted to keep privacy'
         self.bytes = getDataGuardian.connectToApi(self.apiAddress, 1, '', self.apiKey)
 
     def tearDown(self):
@@ -27,7 +27,7 @@ class TestGetDataGuard(unittest.TestCase):
         self.assertEqual(type(json), bytes)
 
     def test_connectToApi_withWrongCredential(self):
-        booleanResult = getDataGuardian.connectToApi(self.apiAddress, 1, '', '&api-key=ee064c9a-63d8-4cda-bbd8-ea415d3278')
+        booleanResult = getDataGuardian.connectToApi(self.apiAddress, 1, '', '&api-key=eec9a-63d8-bbd8-ea415d78')
         self.assertFalse(booleanResult)
 
     # test_analyseTheResponse
