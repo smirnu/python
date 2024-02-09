@@ -76,7 +76,6 @@ def mainProcess():
             jsonToCsv(response['response'], pageMemory, currPage)
         else:
             fillState(False, currPage, pageMemory) # if somethng wrong with json we will add currPage into errors file
-        break # !!!!!!!!!! delete !!!!!!!!!!
     
     # we went through all pages, it is the time to check if we had errors with some pages
     if isGoodState:
