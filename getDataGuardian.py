@@ -88,7 +88,7 @@ def mainProcess():
 # takes number of the page and calls connectToApi with parameters, returns response from the API (bytes or boolean)
 def formTheCall(page):
     apiAddress = 'https://content.guardianapis.com/search?page='
-    apiKey = 'ee064c9a-63d8-4cda-bbd8-ea415d32785c'
+    apiKey = 'deleted to keep privacy'
     filterWithOr = ['elections', 'brexit']
     currPage = 1 # to test on 0 we can receve a code 400, page has to be > 0
     maxPage = 0 # we will update this number after the first query
