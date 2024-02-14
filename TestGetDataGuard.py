@@ -60,24 +60,24 @@ class TestGetDataGuard(unittest.TestCase):
         pageToLoad = getDataGuardian.getPageNumber(1, 5, pageMemory)
         self.assertEqual(pageToLoad, -1)
 
-    # checkPrevSessionInterapted
-    def test_checkPrevSessionInterapted_succExists(self):
+    # checkPrevSessionInterrupted
+    def test_checkPrevSessionInterrupted_succExists(self):
         pageMemory = []
         with open('success_load.txt', 'a') as file:
             for i in range(1, 5):
                 file.write(str(i) + '\n')
-        getDataGuardian.checkPrevSessionInterapted(pageMemory)
+        getDataGuardian.checkPrevSessionInterrupted(pageMemory)
         self.assertEqual(len(pageMemory), 5)
 
-    def test_checkPrevSessionInterapted_errExists(self):
+    def test_checkPrevSessionInterrupted_errExists(self):
         pageMemory = []
         with open('error_load.txt', 'a') as file:
             for i in range(1, 5):
                 file.write(str(i) + '\n')
-        getDataGuardian.checkPrevSessionInterapted(pageMemory)
+        getDataGuardian.checkPrevSessionInterrupted(pageMemory)
         self.assertEqual(len(pageMemory), 5)
 
-    def test_checkPrevSessionInterapted_errSuccExist(self):
+    def test_checkPrevSessionInterrupted_errSuccExist(self):
         pageMemory = []
         with open('error_load.txt', 'a') as file:
             for i in range(1, 5):
@@ -85,10 +85,10 @@ class TestGetDataGuard(unittest.TestCase):
         with open('success_load.txt', 'a') as file:
             for i in range(5, 10): 
                 file.write(str(i) + '\n')
-        getDataGuardian.checkPrevSessionInterapted(pageMemory)
+        getDataGuardian.checkPrevSessionInterrupted(pageMemory)
         self.assertEqual(len(pageMemory), 10)
 
-    def test_checkPrevSessionInterapted_onePageNoProcc(self):
+    def test_checkPrevSessionInterrupted_onePageNoProcc(self):
         pageMemory = []
         with open('error_load.txt', 'a') as file:
             for i in range(1, 5):
@@ -96,13 +96,13 @@ class TestGetDataGuard(unittest.TestCase):
         with open('success_load.txt', 'a') as file:
             for i in range(6, 10): # skippin page 5, it has to be False in pageMemory
                 file.write(str(i) + '\n')
-        getDataGuardian.checkPrevSessionInterapted(pageMemory)
+        getDataGuardian.checkPrevSessionInterrupted(pageMemory)
         self.assertFalse(pageMemory[5])
 
-    def test_checkPrevSessionInterapted_notInteraption(self):
+    def test_checkPrevSessionInterrupted_notInterruption(self):
         pageMemory = []
-        getDataGuardian.checkPrevSessionInterapted(pageMemory)
-        self.assertEquals(len(pageMemory), 0)  
+        getDataGuardian.checkPrevSessionInterrupted(pageMemory)
+        self.assertEqual(len(pageMemory), 0)  
     
     # fillState
     def test_fillState_err(self): # check that an error file created 
